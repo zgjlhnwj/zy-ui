@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        /*基本的样式*/
+        button{width: 1.6rem;height: 0.5rem;font-size: 0.3rem;line-height: 0.5rem;background: red;color: white;font-weight: bold}
+        .lazyui-layer-pop{
+            position: relative;
+            z-index: 100;
+            font-size: .4rem;
+        }
+        .lazyui-layer-pop .lazyui-layer-shade{
+            background-color: rgba(0,0,0,.7);
+            pointer-events: auto;
+        }
+        .lazyui-layer-pop .lazyui-layer-main{
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            /*background: url("pop-bg.png") no-repeat;*/
+            background-color: #ffffff;
+            background-size: contain;
+            color: #262626;
+        }
+        .lazyui-layer-pop .lazyui-layer-main .lazyui-layer-section {
+            display: table-cell;
+            vertical-align: middle;
+            text-align: center;
+        }
+
+        .lazyui-layer-pop .lazyui-layer-main .lazyui-layer-close{
+            position: absolute;
+            top: .25rem;
+            right: .08rem;
+            width: .54rem;
+            height: .48rem;
+            z-index: 4;
+            cursor:pointer;
+        }
+        .lazyui-layer-pop .lazyui-layer-main .lazyui-layer-title {
+            height: .39rem;
+            min-width: 1.77rem;
+            margin: .28rem auto;
+            line-height: 0.39rem;
+            color: white;
+            text-align: left;
+            text-indent: 1rem;
+        }
+        .lazyui-layer-pop .content .prize-content {
+            color: #a40000;
+            font-size: .24rem;
+            margin:0 0.1rem 0 0.49rem;
+            line-height: 0.4rem;
+            width: 5.2rem;
+        }
+    </style>
+</head>
+<body>
+<button id="bb">显示弹窗</button>
+<!--引入jquery-->
+<script type="text/javascript" src="http://image.37wan.cn/common/js/jquery-1.9.1.min.js"></script>
+<!--引入Pop组件-->
+<script>
+    (function ($) {
+        /**
+         * JS 实现 类似 java StringBuffer 对象
+         * @return
+         */
+        var StringBuffer = function(){
+            this._things_= new Array();
+        };
+        StringBuffer.prototype.append = function(str){
+            this._things_.push(str);
+            return this;
+        };
+        /**
+         * JS 实现 类似 java Buffer 的toString 方法
+         * @return
+         */
+        StringBuffer.prototype.toString =function(){
+            return this._things_.join("");
+        };
+        $.fn.Pop = function (option) {
+            this._popId = "lazyui-layer-pop-" + (+new Date())
+            this._html = option.html || "";
+            this._title = option.title || "";
+            this._close = option.close ? option.close: true;
+            this._el = option.el ? document.querySelector(option.el): "";
+
+            $(document).on('click','.lazyui-layer-shade', function () {
+                $("#"+_popId).remove();
+            })
+            return this
+        }
+        $.fn.Pop.prototype.createLayer = function () {
+            var sb = new StringBuffer();
+            sb.append('<div class="lazyui-layer-pop" id="'+ this._popId +'">')
+                sb.append('<div class="lazyui-layer-shade"></div>')
+                sb.append('<div class="lazyui-layer-main">')
+                    sb.append('<div class="lazyui-layer-section">')
+                        sb.append('<div class="lazyui-layer-close"></div>')
+                        sb.append('<div class="lazyui-layer-title"></div>')
+                        sb.append('<div class="lazyui-layer-content" style="margin-top: 1rem">'+ this._html +'</div>')
+                    sb.append('</div>')
+                sb.append('</div>')
+            sb.append('</div>')
+            $("body").append(sb.toString())
+        }
+        $.fn.Pop.prototype.open = function () {
+            this.createLayer();
+            $("#"+ this._popId).show();
+        }
+    }(jQuery))
+</script>
+<script>
+
+</script>
+<script>
+    //  rem代码
+    var windowW = $(window).width();
+    var ratio = windowW/640;
+    $("html").css("fontSize",100*ratio+"px");
+    $(window).on("resize",function(){
+        var windowW = $(window).width();
+        var ratio = windowW/640;
+        $("html").css("fontSize",100*ratio+"px");
+    });
+    var html = $("#textzhugj").html()
+    console.log(html)
+    //new一个Pop实例
+    var popn=new $.fn.Pop({
+        title: '我在测试',
+        close: true,
+        html: '<p>登录后才能参与活动哦?<br/> 自动登录跳转中......</p>'
+    });
+
+    popn.open()
+
+</script>
+</body>
+</html>

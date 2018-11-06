@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="format-detection" content="telephone=no">
+    <meta http-equiv="x-rim-auto-match" content="none">
+    <meta name="viewport" content="initial-scale=1, minimum-scale=1 maximum-scale=1, user-scalable=no">
+    <title>head</title>
+    <link rel="stylesheet" href="../../reslib/css/c.reset.v1.css">
+    <link rel="stylesheet" href="./css/bit_global.css">
+    <script src="../../reslib/js/station/c.base.js"></script>
+    <script src="../../reslib/js/station/c.js.cookie.min.js"></script>
+    <script src="../../reslib/js/station/c.webview.Javascript.bridge.js"></script>
+    <script src="../common/js/c.login.opt.js"></script>
+</head>
+<body>
+    <div id="#App" class="content_warpper">
+		<au-header title="标题过长会隐藏后面的内容啊哈哈哈哈" class="dfadsfa 12312">
+			<router-link to="/" click="test()" />
+		</au-header>
+        <!--页头-->
+        <header class="bit_page_title">
+          	<div class="back_btn">
+            	<span></span>
+          	</div>
+          	<div class="title">页面标题页面标题</div>
+        </header>
+		<!--弹出层--支持1~2个按钮-->
+		<div class="bit_confirm_layer">
+			<div class="layer_bg"></div>
+			<div class="confirm_window">
+				<div class="confirm_text">解除绑定会回收您<br>所有设备带来的产能<br>您确定解除吗？</div>
+				<div class="confirm_btn">
+					<button>再想想</button>
+					<button>确定</button>
+				</div>
+				<div class="close_btn">
+					<span class="t1"></span>
+					<span class="t2"></span>
+				</div>
+			</div>
+		</div>
+		<!--底部选项弹层-->
+		<div class="bit_bottom_select">
+			<div class="select_bg"></div>
+			<div class="bottom_trigger">
+				<div class="gn">
+					<button>确认</button>
+					<button>清空</button>
+				</div>
+				<button class="cancel">取消</button>
+			</div>
+		</div>
+    </div>
+</body>
+</html>
+<script>
+	var test = function () {
+		console.log("back")
+	}
+	//var abc = document.getElementsByTagName(/^<([au-]+)\s*\/?>(?:<\/\1>|)$/)
+	var StringBuffer = function () {
+		this._things_= new Array();
+	}
+	StringBuffer.prototype.append = function (str) {
+		this._things_.push(str)
+	}
+	StringBuffer.prototype.toString = function () {
+		return this._things_.join("")
+	}
+
+	var addEventListener = function(target,type,handler){
+		return target.attachEvent ? target.attachEvent("on"+type,handler) : target.addEventListener(type,handler,false);
+	};
+
+	var body = document.getElementsByTagName("body")[0];
+	var auHeader = document.getElementsByTagName("au-header")[0];
+	var childrens = auHeader.children;
+	var attributes = auHeader.attributes;
+
+	var header = document.createElement('header');
+	var backBtn = document.createElement('div');
+	var title = document.createElement('div');
+
+	if(childrens[0].attributes.click) {
+		addEventListener(backBtn, "click", window["test"]);
+	}
+
+	header.appendChild(backBtn);
+	header.appendChild(title);
+	header.className = "bit_page_title" + " " + attributes.class.value
+	backBtn.className = "back_btn";
+	backBtn.innerHTML = "<span></span>"
+	title.className = "title"
+	title.innerText = attributes.title.value
+
+	auHeader.replaceWith(header)
+
+</script>

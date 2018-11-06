@@ -1,0 +1,297 @@
+@charset "utf-8";
+/* 此样式库为业务公共样式库
+  Name:			style_reset
+	Level:		Global
+  Explain:		自定义页面公共样式
+  reliable:    c.reset.v1.css
+	Last Modify:	fangyangyadong
+*/
+
+/* 框架公共样式部分 */
+.bit_layer_blackbg{
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.6);
+}
+.bit_layer_transbg{
+  position: fixed;
+  width: 100%;
+  height: 100%;
+}
+
+/* 页头标题区 */
+.bit_header{
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  height: 1rem;
+  background: #3c4655;
+}
+.bit_header::after{
+  content: "";
+  display: block;
+  clear: both;
+  visibility: hidden; 
+  height: 0;
+  font-size:0;
+}
+.bit_header_static{
+  position:static;
+  width: 100%;
+  height: 1rem;
+  background: #3c4655;
+}
+.bit_header .bit_back_zone{
+  width: 25%;
+  height: 1rem;
+  float: left;
+}
+.bit_header .bit_back_zone .bit_back_btn{
+  position: relative;
+  display: block;
+  width: 0.8rem;
+  height: 1rem;
+  float: left;
+}
+.bit_header .bit_back_zone .bit_back_btn i{
+  display: block;
+  position: absolute;
+  top: 0.35rem;
+  left: 0.35rem;
+  width: 0.3rem;
+  height: 0.3rem;
+  font-size: 0.3rem;
+  color: #FFF;
+}
+.bit_header .bit_back_zone .bit_back_btn i::before{
+  display: block;
+  width: 0.3rem;
+  height: 0.3rem;
+  font-size: 0.3rem;
+}
+.bit_header .bit_back_zone .bit_back_text{
+  float: left;
+  height: 1rem;
+  line-height: 1rem;
+  font-size: 0.28rem;
+  color:#fff;
+}
+.bit_header .bit_title_text{
+  float: left;
+  width: 50%;
+  height: 1rem;
+  line-height: 1rem;
+  text-align: center;
+  color: #FFF;
+  font-family: PingFangSC-Regular;
+  font-size: 0.3rem;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  -o-text-overflow:ellipsis;
+  -ms-text-overflow: ellipsis;
+}
+.bit_header_menu{
+  float: right;
+  width: 1rem;
+  position: relative;
+}
+.bit_menu_btn{
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 1rem;
+  height: 1rem;
+}
+.bit_menu_btn i{
+  display: block;
+  position: absolute;
+  color: #FFF;
+  font-size: 0.6rem;
+  width: 0.6rem;
+  height: 0.6rem;
+  top: 0.2rem;
+  right: 0.2rem;
+}
+.bit_menubg{
+  position: fixed;
+  display: none;
+  z-index: 200;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+.bit_header_menu_list{
+  display: none;
+  width: 3rem;
+  overflow: hidden;
+  position: absolute;
+  z-index: 300;
+  top: 1rem;
+  right: 0;
+  background: #485466;
+  -webkit-box-shadow:0 0 3px #333;
+  -o-box-shadow:0 0 3px #333;
+  box-shadow:0 0 3px #333;
+}
+.bit_header_menu_list li{
+  display: flex;
+  color: #FFF;
+  height: 0.8rem;
+  line-height: 0.8rem;
+  font-size: 0.36rem;
+  border-bottom:1px solid #556377;
+  cursor: pointer;
+}
+.bit_header_menu_list li div{
+  position: relative;
+  width: 0.8rem;
+  height: 0.8rem;
+  flex: 0 0 0.8rem;
+  text-align: center;
+}
+.bit_header_menu_list li div i{
+  font-size: 0.34rem;
+}
+.bit_header_menu_list li span{
+  width: 100%;
+  height: 0.8rem;
+  overflow: hidden;
+  flex: 1;
+  font-size: 0.26rem;
+}
+
+
+/* 确认弹层 */
+.bit_confirm_layer{
+  display: none;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top:0;
+  bottom:0;
+  left: 0;
+  right: 0;
+  z-index: 600;
+}
+.bit_confirm_layer .confirm_window{
+  position: absolute;
+  width: 70%;
+  left: 15%;
+  top: 50%;
+  transform:translate(0,-50%);
+  background: #fff;
+  border-radius:6px;
+  overflow: hidden;
+}
+.bit_confirm_layer .confirm_text{
+  display: flex;
+  width: 90%;
+  padding: 0.3rem 5%;
+  min-height: 0.46rem;
+  line-height: 0.46rem;
+  align-items:center;
+  justify-content:center;
+  font-family: PingFangSC-Regular;
+  font-size: 0.3rem;
+  color: #333333;
+  text-align: center;
+}
+.bit_confirm_layer .confirm_btn{
+  display: flex;
+  border-top: 1px solid #dedede;
+}
+.bit_confirm_layer .confirm_btn button{
+  flex: 1;
+  height: 0.8rem;
+  line-height: 0.8rem;
+  font-size: 0.3rem;
+  align-items:center;
+  justify-content:center;
+  background: none;
+  -webkit-appearance: none;
+  border: none;
+}
+.bit_confirm_layer .confirm_btn button:nth-child(2){
+  border-left: 1px solid #dedede;
+}
+.bit_confirm_layer .close_btn{
+  position: absolute;
+  top: 0.2rem;
+  right: 0.2rem;
+  width: 0.4rem;
+  height: 0.4rem;
+}
+.bit_confirm_layer .close_btn span{
+  position: absolute;
+  display: block;
+  width: 0.16rem;
+  height: 0.16rem;
+  border-top:1px solid #dedede;
+  border-left:1px solid #dedede;
+}
+.bit_confirm_layer .close_btn span.t1{
+  top: 0.1rem;
+  left: 0;
+  transform: rotate(135deg);
+  -ms-transform: rotate(135deg);
+  -moz-transform: rotate(135deg);
+  -o-transform: rotate(135deg);
+}
+.bit_confirm_layer .close_btn span.t2{
+  top: 0.1rem;
+  left: 0.23rem;
+  transform: rotate(-45deg);
+  -ms-transform: rotate(-45deg);
+  -moz-transform: rotate(-45deg);
+  -o-transform: rotate(-45deg);
+}
+
+/* 底部选项弹层 */
+.bit_bottom_select{
+  display: none;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top:0;
+  bottom:0;
+  left: 0;
+  right: 0;
+  z-index: 600;
+}
+.bit_bottom_select .bottom_trigger{
+  position: absolute;
+  bottom:0;
+  left: 0;
+  width: 100%;
+}
+.bit_bottom_select .bottom_trigger button{
+  display: block;
+  width: 100%;
+  height: 1rem;
+  line-height: 1rem;
+  text-align: center;
+  background: #FFF;
+  border: none;
+  font-size: 0.3rem;
+  outline:none;
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+  -webkit-tap-highlight-color: transparent;
+}
+.bit_bottom_select .bottom_trigger .gn{
+  position: absolute;
+  width:100%;
+  bottom: 1.2rem;
+  left: 0;
+}
+.bit_bottom_select .bottom_trigger .gn button{
+  border-top: 1px solid #dedede;
+}
+.bit_bottom_select .bottom_trigger .gn button:nth-child(1){
+  border: none;
+}
