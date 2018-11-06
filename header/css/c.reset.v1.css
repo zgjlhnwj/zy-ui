@@ -1,0 +1,144 @@
+@charset "utf-8";
+/* 重定义浏览器默认样式
+	Name:			   style_reset
+    Level:			   Global
+    Version:           1.0.0
+	Explain:		   重定义浏览器默认样式
+    Last Modify:	   fangyangyadong
+    Last Update:       2018-11-01
+    Reliable:          c.base.js  >> function px to rem (750)
+*/
+
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  -webkit-user-select:none;   /*阻止用户选中字体及内容*/
+  user-select: none; 
+}
+html, body, h1, h2, h3, h4, h5, h6, hr, p, iframe, dl, dt, dd, ul, ol, li, pre, span, b, i, form, a, button, input, textarea, th, td, fieldset {
+  word-wrap: break-word;
+  font-family: PingFangSC-Regular, "Microsoft Yahei","SimSun","SimHei","sans-serif", "Helvetica", "Arial", "Verdana";
+  -webkit-tap-highlight-color:rgba(255,255,255,0); /* 去掉点击高亮 */
+}
+html, body{
+    *position: static;
+    width: 100%;
+    height: 100%;
+    color: #333333;
+    line-height: 1;
+    -webkit-text-size-adjust:none;  /*阻止字体调整*/
+    -ms-text-size-adjust:none;
+    -moz-text-size-adjust:none;
+    -o-text-size-adjust:none;
+    text-size-adjust:none;
+    -ms-touch-action:none;   /* 禁止winphone默认触摸事件 */
+}
+
+
+/* html5 新标签 */
+header, hgroup, nav, section, article, details, summary, aside, footer {
+	display: block;
+}
+audio, canvas, video {
+  display: inline-block;
+  *display: inline;
+  *zoom: 1
+}
+
+
+/* 表格及列表 */
+ul, li, ol, dl, dt, dd {
+  list-style-type: none;
+}
+table, tr, td, thead, tbody{
+	border-collapse:collapse;
+	border-spacing:0;
+}
+
+
+/* 表单 */
+input, button, textarea, select, optgroup, datalist, option{
+  -webkit-appearance:none;   /* 去除默认外观 */
+  appearance: none;
+  cursor: pointer;
+  outline: none;  /* 去除蓝框 */
+  -webkit-tap-highlight-color: rgba(0,0,0,0)!important;  /*强制去除高亮*/  
+}
+select::-ms-expand {   /*去掉下拉框默认下拉箭头，一般可用背景图代替*/  
+  display: none;
+}
+input[type=text]::-ms-clear, input[type=tel]::-ms-clear, input[type=number]::-ms-clear {  /* 取消输入框的自带清除的按钮 */ 
+  display:none;
+}
+input[type="number"]::-webkit-inner-spin-button, input[type="number"]::-webkit-outer-spin-button {
+  height: auto;
+}
+input[type="search"] {
+  -webkit-appearance: textfield; 
+  -moz-box-sizing: content-box;
+  -webkit-box-sizing: content-box;
+  box-sizing: content-box;
+}
+input[type="search"]::-webkit-search-cancel-button, input[type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+input::-webkit-input-placeholder, input:-moz-placeholder, input::-moz-placeholder, input:-ms-input-placeholder, input:focus::-webkit-input-placeholder{
+  color: #999;   
+}
+input::-webkit-input-speech-button { /*去掉安卓input语音输入按钮*/
+  display: none;  
+}  
+
+/* 图片及链接 */
+a {
+  outline: none;
+  cursor: pointer;
+  text-decoration: none;
+  -webkit-touch-callout: none;
+}
+a:link, a:focus, a:hover, a:active, a:focus{
+  outline: none
+}
+img{
+  width: 100%;
+  border: 0;
+  -webkit-touch-callout: none;
+  image-rendering: optimizeQuality;  /* Firefox 3.6+; default behavior is identical, no need to specify */
+  -ms-interpolation-mode: bicubic;   /* Internet Explorer 7.0; default in IE8+ */
+}
+
+/* 滚动条相关 */
+/* 
+::-webkit-scrollba          滚动条整体部分
+::-webkit-scrollbar-thumb   滚动条内的小方块
+::-webkit-scrollbar-track   滚动条轨道
+::-webkit-scrollbar-button  滚动条轨道两端按钮
+::-webkit-scrollbar-track-piece  滚动条中间部分，内置轨道
+::-webkit-scrollbar-corner       边角，两个滚动条交汇处
+::-webkit-resizer           两个滚动条的交汇处上用于通过拖动调整元素大小的小控件 
+*/
+
+
+/* 工具类CSS */
+
+/*清除浮动*/
+.clearfix:after {      
+  content: "";
+  display: block;
+  clear: both;
+  visibility: hidden; 
+  height: 0;
+  font-size:0;
+}
+.clearfix{ *zoom:1;}   /*针对IE6无法识别after伪类*/
+
+/*文字溢出省略*/
+.ellipsis{
+  overflow: hidden;
+  white-space: nowrap;
+  -o-text-overflow: ellipsis;
+  -ms-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+}
