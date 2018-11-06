@@ -90,10 +90,8 @@
 	}
 	//构造函数原型
 	Header.prototype = {
-		constructor: this, 
 		_initial: function(opt){
 			var _self = this;
-			var body = document.getElementsByTagName('body')[0];
 			var header_box = document.getElementsByTagName('bit-header')[0];
 			var _headerDiv = document.createElement('header');
 			_headerDiv.id = this._id;
@@ -213,7 +211,7 @@
 		backLink:'https://www.baidu.com',
 		backText:'后退',
 		backTextColor:'#FFF',
-		fixedTop: false,
+		fixedTop: true,
 		menu:[{
 			iconImg:'icon-tubiaozhizuo-6',
 			itemText:'发送给好友',
